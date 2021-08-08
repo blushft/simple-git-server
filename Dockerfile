@@ -1,6 +1,10 @@
 FROM alpine/git
 
+ENV REPOS=""
+ENV DEFAULT_BRANCH="main"
+
 RUN apk add -u git-daemon 
+RUN git config --global init.defaultBranch ${DEFAULT_BRANCH}
 
 RUN mkdir -p /etc/scm && \
     touch /etc/scm/init.sh 
